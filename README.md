@@ -1,4 +1,4 @@
-# IP-2-ASN
+# ASNVision
 Tool to get ASN from an IP
 Execution Steps:
 Save the script, say as setup.sh.
