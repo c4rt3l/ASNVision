@@ -1,0 +1,23 @@
+<html>
+<body>
+    <h2>Upload IP Addresses</h2>
+    <textarea id="ipList" rows="10" cols="30"></textarea><br><br>
+    <button onclick="getASN()">Get AS Numbers</button>
+    <h3>Results</h3>
+    <pre id="results"></pre>
+    <script>
+    async function getASN() {
+        const ips = document.getElementById('ipList').value.split("\n");
+        const response = await fetch('/get_asn', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ ips: ips })
+        });
+        const data = await response.json();
+        document.getElementById('results').textContent = JSON.stringify(data, null, 2);
+    }
+    </script>
+</body>
+</html>
